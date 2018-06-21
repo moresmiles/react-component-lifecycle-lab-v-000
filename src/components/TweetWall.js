@@ -19,11 +19,12 @@ class TweetWall extends React.Component {
     return (this.props.tweets !== nextProps.tweets);
   }
   componentWillReceiveProps(nextProps) {
-
-    const updatedTweets = [nextProps.newTweets[0], ...this.state.tweets]
     this.setState({
-      tweets: updatedTweets
-    })
+      tweets: [
+        ...nextProps.newTweets,
+        ...this.state.tweets
+      ]
+    });
   }
 
   render() {
